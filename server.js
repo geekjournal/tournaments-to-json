@@ -3,6 +3,8 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio'), cheerioTableparser = require('cheerio-tableparser');
 var app     = express();
+//const http = require('http');
+
 
 // This is the spreadsheet that contains the Tournament data we want.
 // https://docs.google.com/spreadsheets/d/e/2PACX-1vTHVjDZcS0SRqJXYp4CaTHlC5EkJnVLGYnsVma3roFCBHo9SNQvqW5WyMF5UFJwPGltnh3x96yGnljb/pubhtml/sheet?headers%5Cx3dfalse&gid=2091685586
@@ -30,31 +32,93 @@ app.get('/scrape', function(req, res){
     tableData = $("table").parsetable(true, true, true);
     flippedTableData = tableData[0].map((col, i) => tableData.map(row => row[i]));
 
-    var obj = { date : "", name : "", city : "", ID : ""};
     var json = [];
 
     for(var i = 0; i < flippedTableData.length; i++) {
         if (i === 0) { continue; }
         if (i === 1) { continue; }
+
         var item = flippedTableData[i];
 
-        obj.date = item[1];
-        obj.name = item[2];
-        obj.city = item[3];
-        obj.ID = item[4];
+        var obj = { date : "", name : "", city : "", ID : ""};
+        obj.date = item[1].toString();
+        obj.name = item[2].toString();
+        obj.city = item[3].toString();
+        obj.ID = item[4].toString();
         json.push(obj);
     }
 
+    // Now go back and get the data as HTML so we can parse out the tournament link
+    tableData = $("table").parsetable(true, true, false);
+    flippedTableData = tableData[0].map((col, i) => tableData.map(row => row[i]));
+    for(var i = 0; i < flippedTableData.length; i++) {
+        if (i === 0) { continue; }
+        if (i === 1) { continue; }
+
+        var item = flippedTableData[i];
+
+        var obj = { date : "", name : "", city : "", ID : "", urlID: "", url: "", points: "", deadline: ""};
+        obj.date = json[(i-2)].date.toString();
+        obj.name = json[i-2].name.toString();
+        obj.city = json[i-2].city.toString();
+        obj.ID = json[i-2].ID.toString();
+
+        var index = item[4].search("%3D");
+        var urlID = item[4].substring(index+3, index+3+6); 
+        obj.urlID = urlID;
+        obj.url = "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=" + urlID;
+       
+        // The call to get points takes too long. DON'T DO IT HERE.
+        //var points = getPoints(urlID);
+        //obj.points = points;
+
+        json[i-2] = obj;
+        //json.push(obj);
+    }
+
     res.send(JSON.stringify(json, null, 4))
+
+    // var result = {"array": []};
+    // for(var i = 0; i < 2; i++){
+    //     var valueDict = {};
+    //     for(var j = 0; j < 2; j++){
+    //         valueDict["value" + (j+1).toString()] = "value";
+    //     }
+    //     result["array"].push(valueDict);
+    // }
 
     // fs.writeFile('keith.json', JSON.stringify(json, null, 4), function(err){
     //     console.log('File successfully written! - Check your project directory for the output.json file');
     // })
 
     // Finally, we'll just send out a message to the browser reminding you that this app does not have a UI.
-    res.send('Check your console!')
+    //res.send('Check your console!')
     
 })
+
+app.get('/points/:urlID', function(req, res){
+    console.log('points called with ID: ' + req.params.urlID)
+    var points = getPoints(req.params.urlID)
+
+    res.send(points);
+   // res.send('The id you specified is ' + req.params.id + ' and points: ' + points);
+})
+
+function getPoints(urlID) {
+    var c = require('child_process');
+    url = 'https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=' + urlID;
+    cmd = "curl '" + url.toString() + "' --compressed";
+    var html = c.execSync(cmd).toString(); //returns stdout
+    //console.log(html.toString());
+    const $ = cheerio.load(html);
+    var txt = $('body').text();
+    var n = txt.search("Adult-");
+    if (n === -1) {
+        return "?";
+    }
+    var points = txt.substring(n+6, n+9);
+    return points;
+}
 
 app.listen('8081')
 console.log('Magic happens on port 8081');
