@@ -1,13 +1,28 @@
 {
-  "name": "node-web-scrape",
+  "name": "tournaments-to-json",
   "version": "0.0.1",
-  "description": "Scrape le web.",
+  "description": "Scrape Tournament Data",
   "main": "server.js",
-  "author": "Scotch",
+  "author": "Geekjournal",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "cheerio-tableparser": "^1.0.1",
+    "child_process": "^1.0.2",
     "express": "latest",
     "request": "latest"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geekjournal/tournaments-to-json.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geekjournal/tournaments-to-json/issues"
+  },
+  "homepage": "https://github.com/geekjournal/tournaments-to-json#readme"
 }

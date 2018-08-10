@@ -1,0 +1,29 @@
+[
+    {
+        "date": "Jan 1-11",
+        "name": "First tournament Major Zone (Ad, Sr, SS)",
+        "city": "San Antonio",
+        "ID": "1",
+        "urlID": "207844",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207844",
+        "points": "400"
+    },
+    {
+        "date": "Feb 2-12",
+        "name": "Second Tournament (Ad)",
+        "city": "Irving (Dallas)",
+        "ID": "2",
+        "urlID": "208688",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208688",
+        "points": "100"
+    },
+    {
+        "date": "March 3-13",
+        "name": "Third Tournament (Ad)",
+        "city": "Irving (Dallas)",
+        "ID": "3",
+        "urlID": "208688",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208688",
+        "points": "100"
+    }
+]

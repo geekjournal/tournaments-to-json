@@ -1,0 +1,578 @@
+[
+    {
+        "date": "July 13-15",
+        "name": "K2 Cryospa Adult Major Zone (Ad, Sr, SS)",
+        "city": "San Antonio",
+        "ID": "800010818",
+        "urlID": "207844",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207844",
+        "points": "400"
+    },
+    {
+        "date": "July 13-15",
+        "name": "LCCC WTA Mid Year Indoor Doubles Tournament (Ad)",
+        "city": "Irving (Dallas)",
+        "ID": "800009518",
+        "urlID": "208688",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208688",
+        "points": "100"
+    },
+    {
+        "date": "July 13-15",
+        "name": "MCCTA July Open (Jr, Ad, Sr, SS)",
+        "city": "Missouri City (Houston)",
+        "ID": "809719918",
+        "urlID": "208781",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208781",
+        "points": "100"
+    },
+    {
+        "date": "July 20-22",
+        "name": "Raveneaux Adult Slam (Ad)",
+        "city": "Spring (Houston)",
+        "ID": "800048918",
+        "urlID": "215873",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=215873",
+        "points": "100"
+    },
+    {
+        "date": "July 20-22",
+        "name": "Fort Worth Adult Major Zone (Ad)",
+        "city": "Fort Worth",
+        "ID": "800024218",
+        "urlID": "212771",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=212771",
+        "points": "400"
+    },
+    {
+        "date": "July 27-29",
+        "name": "Brookhaven Country Club Adult Levels (Ad)",
+        "city": "Dallas",
+        "ID": "800019418",
+        "urlID": "209395",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=209395",
+        "points": "200"
+    },
+    {
+        "date": "July 27-29",
+        "name": "Horseshoe Bay Resort Red Clay Championship (Ad)",
+        "city": "Horseshoe Bay (Austin)",
+        "ID": "800036618",
+        "urlID": "207820",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207820",
+        "points": "100"
+    },
+    {
+        "date": "July 28-29",
+        "name": "Beaumont Tennis Academy Summer Open (Jr, Ad)",
+        "city": "Beaumont",
+        "ID": "800011118",
+        "urlID": "208737",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208737",
+        "points": "100"
+    },
+    {
+        "date": "Aug. 3-5",
+        "name": "Fair Oaks (Dallas) Summer Open (Ad, Sr, SS)",
+        "city": "Dallas",
+        "ID": "800029718",
+        "urlID": "210135",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=210135",
+        "points": "100"
+    },
+    {
+        "date": "Aug. 4-5",
+        "name": "Bay Area Racquet Club Summer Junior and Adult Open (Jr, Ad)",
+        "city": "Houston",
+        "ID": "800011218",
+        "urlID": "208739",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208739",
+        "points": "100"
+    },
+    {
+        "date": "Aug. 10-12*",
+        "name": "DPTA Adult Summer Open (Ad, Sr, SS)",
+        "city": "Dallas",
+        "ID": "800060318",
+        "urlID": "219938",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=219938",
+        "points": "100"
+    },
+    {
+        "date": "Aug. 10-12",
+        "name": "MCCTA August Tournament (Jr, Ad, Sr, SS)",
+        "city": "Missouri City (Houston)",
+        "ID": "809674918",
+        "urlID": "208782",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208782",
+        "points": "100"
+    },
+    {
+        "date": "Aug. 17-19",
+        "name": "Horseshoe Bay Resort Red Clay Summer Classic (Ad)",
+        "city": "Horseshoe Bay (Austin)",
+        "ID": "809703818",
+        "urlID": "207821",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207821",
+        "points": "200"
+    },
+    {
+        "date": "Aug. 17-19",
+        "name": "Southern Oaks Summer Sizzler (Ad)",
+        "city": "Burleson (DFW)",
+        "ID": "800017818",
+        "urlID": "209341",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=209341",
+        "points": "200"
+    },
+    {
+        "date": "Aug. 18-19*",
+        "name": "King's Court Dawn and Dusk Summer Show Down (Ad)",
+        "city": "Cypress (Houston)",
+        "ID": "800012618",
+        "urlID": "208757",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208757",
+        "points": "100"
+    },
+    {
+        "date": "Aug. 24-26",
+        "name": "$$$ 99th Annual Beaumont Labor Day Tennis Classic $$$ Underwritten by Diamond D Development (Jr, Ad)",
+        "city": "Beaumont",
+        "ID": "800011418",
+        "urlID": "208742",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208742",
+        "points": "?"
+    },
+    {
+        "date": "Aug. 24-26",
+        "name": "Howdy Honda/Polo Tennis Club Fall Adult Open (Ad)",
+        "city": "Austin",
+        "ID": "800017518",
+        "urlID": "209327",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=209327",
+        "points": "100"
+    },
+    {
+        "date": "Aug. 24-26",
+        "name": "Waco Adult Doubles Major Zone (Ad, Sr, SS)",
+        "city": "Waco",
+        "ID": "800037018",
+        "urlID": "209370",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=209370",
+        "points": "400"
+    },
+    {
+        "date": "Sept. 7-9",
+        "name": "MCCTA September Tournament (Jr, Ad, Sr, SS)",
+        "city": "Missouri City (Houston)",
+        "ID": "809675018",
+        "urlID": "208783",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208783",
+        "points": "100"
+    },
+    {
+        "date": "Sept. 7-9",
+        "name": "Texas Adult Sectionals presented by Mission Pharmacal (Ad)",
+        "city": "San Antonio",
+        "ID": "800017018",
+        "urlID": "207845",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207845",
+        "points": "600"
+    },
+    {
+        "date": "Sept. 8-9",
+        "name": "Metroplex Adults and Juniors: Non-Qualified,Champs & Super Champs (Jr, Ad, Sr, SS)",
+        "city": "Dallas",
+        "ID": "800009118",
+        "urlID": "208355",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208355",
+        "points": "100"
+    },
+    {
+        "date": "Sept. 14-16*",
+        "name": "Polo Tennis & Fitness Club Clay Court Championship (Ad, Sr, SS)",
+        "city": "Austin",
+        "ID": "800053218",
+        "urlID": "211917",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=211917",
+        "points": "100"
+    },
+    {
+        "date": "Sept. 15-16",
+        "name": "SFTS Plano Juniors & Adults (Jr, Ad, Sr, SS)",
+        "city": "Plano (DFW)",
+        "ID": "809691718",
+        "urlID": "208733",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208733",
+        "points": "100"
+    },
+    {
+        "date": "Sept. 20-23",
+        "name": "Metroplex Super Senior and Senior Major Zone (Sr, SS)",
+        "city": "Arlington",
+        "ID": "800031418",
+        "urlID": "207949",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207949",
+        "points": "?"
+    },
+    {
+        "date": "Sept. 21-23",
+        "name": "Brookhaven Country Club Major Zone (Ad)",
+        "city": "Dallas",
+        "ID": "800019318",
+        "urlID": "209396",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=209396",
+        "points": "200"
+    },
+    {
+        "date": "Sept. 21-23",
+        "name": "GTC Adult Fall Championships (Ad)",
+        "city": "Georgetown (Austin)",
+        "ID": "809658618",
+        "urlID": "212944",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=212944",
+        "points": "100"
+    },
+    {
+        "date": "Sept. 28-30",
+        "name": "Horseshoe Bay Resort Red Clay Adult Open (Ad)",
+        "city": "Horseshoe Bay (Austin)",
+        "ID": "800003818",
+        "urlID": "218862",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=218862",
+        "points": "100"
+    },
+    {
+        "date": "Sept. 29-30",
+        "name": "SFTS Junior Adult Open: Non Qualified, Champs, Supers, Adults (Jr, Ad, Sr, SS)",
+        "city": "Plano (DFW)",
+        "ID": "800020518",
+        "urlID": "208735",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208735",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 4-7",
+        "name": "Houston Fall Festival SUPER SENIOR MZ (SS)",
+        "city": "Houston",
+        "ID": "800019518",
+        "urlID": "210699",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=210699",
+        "points": "?"
+    },
+    {
+        "date": "Oct. 5-7",
+        "name": "Houston Fall Festival Senior MZ and Adult Open (Ad, Sr)",
+        "city": "Houston",
+        "ID": "800019618",
+        "urlID": "210700",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=210700",
+        "points": "200"
+    },
+    {
+        "date": "Oct. 5-7",
+        "name": "Berry Creek Fall Open (Ad, Sr)",
+        "city": "Georgetown (Austin)",
+        "ID": "800026118",
+        "urlID": "210274",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=210274",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 5-7",
+        "name": "Frisco Adult Championship (Ad)",
+        "city": "Frisco (Dallas)",
+        "ID": "800018018",
+        "urlID": "209692",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=209692",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 12-14",
+        "name": "MCCTA October Tournament (Jr, Ad, Sr, SS)",
+        "city": "Missouri City (Houston)",
+        "ID": "809675118",
+        "urlID": "208784",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208784",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 12-14",
+        "name": "Wimberley Myers Concrete Fall Open (Ad)",
+        "city": "Wimberley(Austin)",
+        "ID": "800042418",
+        "urlID": "214622",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=214622",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 13-14",
+        "name": "Metroplex Fall Classic Adults and Juniors Non-Qualified,Champs & Super Champs (Jr, Ad, Sr, SS)",
+        "city": "Dallas",
+        "ID": "800009018",
+        "urlID": "208356",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208356",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 19-21",
+        "name": "East Texas Adult Doubles Major Zone (Ad)",
+        "city": "Tyler",
+        "ID": "800021018",
+        "urlID": "212937",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=212937",
+        "points": "400"
+    },
+    {
+        "date": "Oct. 19-21",
+        "name": "Fair Oaks (Dallas) Fall Classic (Ad, Sr, SS)",
+        "city": "Dallas",
+        "ID": "800029918",
+        "urlID": "210136",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=210136",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 19-21",
+        "name": "Horseshoe Bay Resort Howlin' Open (Ad)",
+        "city": "Horseshoe Bay (Austin)",
+        "ID": "800046318",
+        "urlID": "207823",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207823",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 19-21",
+        "name": "University of Houston Cougar Open Wheelchair Tennis Tournament (Ad)",
+        "city": "Houston",
+        "ID": "800069318",
+        "urlID": "222212",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=222212",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 25-28",
+        "name": "Texas Super Senior Sectionals (SS) [also a Category II National event]",
+        "city": "San Antonio",
+        "ID": "800005618",
+        "urlID": "207848",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207848",
+        "points": "?"
+    },
+    {
+        "date": "Oct. 26-28",
+        "name": "Bush Tennis Center Fall Classic Open (Jr, Ad)",
+        "city": "Midland",
+        "ID": "800047818",
+        "urlID": "209165",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=209165",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 27-28",
+        "name": "Beaumont Tennis Academy Adult & Junior Fall Open (Jr, Ad)",
+        "city": "Beaumont",
+        "ID": "800011718",
+        "urlID": "208748",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208748",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 27-28",
+        "name": "Lost Forest Adults Annual Fall Classics (Ad)",
+        "city": "Houston",
+        "ID": "800004118",
+        "urlID": "207178",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207178",
+        "points": "100"
+    },
+    {
+        "date": "Oct. 27-28",
+        "name": "SFTS Spooktacular, Juniors, Champs, Supers & Adults (Jr, Ad, Sr, SS)",
+        "city": "Plano (DFW)",
+        "ID": "800051518",
+        "urlID": "208741",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208741",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 2-4",
+        "name": "Simply the BEST - 2018 Texas Adult Masters Championships (Ad)",
+        "city": "Austin",
+        "ID": "800005418",
+        "urlID": "208315",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208315",
+        "points": "600"
+    },
+    {
+        "date": "Nov. 3-4*",
+        "name": "King's Court Fall Festival (Ad)",
+        "city": "Cypress (Houston)",
+        "ID": "800007818",
+        "urlID": "208994",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208994",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 9-11",
+        "name": "Horseshoe Bay Resort Red Clay Thanksgiving Open (Ad)",
+        "city": "Horseshoe Bay (Austin)",
+        "ID": "800041918",
+        "urlID": "207824",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207824",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 9-11",
+        "name": "MCCTA November Tournament (Jr, Ad, Sr, SS)",
+        "city": "Missouri City (Houston)",
+        "ID": "809675318",
+        "urlID": "208785",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208785",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 10-11",
+        "name": "SFTS Plano Fall: Non Qualified Jrs, Champ, Super, & Adults (Jr, Ad)",
+        "city": "Plano (DFW)",
+        "ID": "809691618",
+        "urlID": "208746",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208746",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 10-11*",
+        "name": "CCAC Fall Open (Ad, Sr, SS)",
+        "city": "Corpus Christi",
+        "ID": "800068318",
+        "urlID": "221855",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=221855",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 16-18",
+        "name": "67th Annual Thanksgiving Open for Juniors and Adults (Jr, Ad, Sr)",
+        "city": "Corpus Christi",
+        "ID": "800020918",
+        "urlID": "212801",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=212801",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 16-18",
+        "name": "Bob Noel Tennis Classic (Ad)",
+        "city": "Burleson (DFW)",
+        "ID": "800017918",
+        "urlID": "209469",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=209469",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 25-26",
+        "name": "Bay Area Racquet Club November Jr and Ad Open (Jr, Ad)",
+        "city": "Houston",
+        "ID": "800011918",
+        "urlID": "208750",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208750",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 30-Dec. 2",
+        "name": "Harry Taylor Pasadena Adult Open (Ad)",
+        "city": "Pasadena (Houston)",
+        "ID": "800055818",
+        "urlID": "208041",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208041",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 30-Dec. 2",
+        "name": "LCCC WTA Farewell Year Indoor Doubles Tournament (Ad)",
+        "city": "Irving (Dallas)",
+        "ID": "800009618",
+        "urlID": "208689",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208689",
+        "points": "100"
+    },
+    {
+        "date": "Nov. 30-Dec. 2",
+        "name": "South Texas Adult & Junior Open (Jr, Ad)",
+        "city": "San Antonio",
+        "ID": "800018718",
+        "urlID": "207846",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207846",
+        "points": "200"
+    },
+    {
+        "date": "Dec. 7-9",
+        "name": "Horseshoe Bay Resort Red Clay Holiday Open (Ad)",
+        "city": "Horseshoe Bay (Austin)",
+        "ID": "809703618",
+        "urlID": "207825",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=207825",
+        "points": "100"
+    },
+    {
+        "date": "Dec. 7-9",
+        "name": "Hurst Adult Open (Ad)",
+        "city": "Hurst (DFW)",
+        "ID": "800017418",
+        "urlID": "209313",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=209313",
+        "points": "100"
+    },
+    {
+        "date": "Dec. 7-9",
+        "name": "MCCTA December Tournament (Ad, Sr, SS)",
+        "city": "Houston",
+        "ID": "809675418",
+        "urlID": "208786",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208786",
+        "points": "100"
+    },
+    {
+        "date": "Dec. 15-16*",
+        "name": "King's Court Christmas Classic (Ad)",
+        "city": "Cypress (Houston)",
+        "ID": "800013518",
+        "urlID": "208995",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208995",
+        "points": "100"
+    },
+    {
+        "date": "Dec. 15-16",
+        "name": "Abilene ATA December Junior and Adult Open (Jr, Ad)",
+        "city": "Abilene",
+        "ID": "800006618",
+        "urlID": "214441",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=214441",
+        "points": "100"
+    },
+    {
+        "date": "Dec. 15-16",
+        "name": "Metroplex Holiday Classic Adults and Juniors Non-Qualified,Champs & Super Champs (Jr, Ad, Sr, SS)",
+        "city": "Dallas",
+        "ID": "800009218",
+        "urlID": "208358",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208358",
+        "points": "100"
+    },
+    {
+        "date": "Dec. 26-30",
+        "name": "The Cotton Bowl Classic - Adult Major Zone (Ad, Sr)",
+        "city": "Addison (Dallas)",
+        "ID": "800020418",
+        "urlID": "212610",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=212610",
+        "points": "400"
+    },
+    {
+        "date": "Dec. 29-30",
+        "name": "Bay Area Racquet Club New Years Adult & Junior Open (Jr, Ad)",
+        "city": "Houston",
+        "ID": "800012418",
+        "urlID": "208755",
+        "url": "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208755",
+        "points": "100"
+    }
+]
