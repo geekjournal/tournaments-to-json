@@ -35,7 +35,7 @@ forked.on('message', (msg) => {
 
 app.get('/', function(req, res){
     // res.send('nothing to see here')
-    res.json({message: `Hello Dr. Fulken`});
+    res.json({message: `GREETINGS PROFESSOR FALKEN.`});
 })
 
 // Force a refresh of the tournament data

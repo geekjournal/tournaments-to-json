@@ -13,7 +13,7 @@ run `npm start`
 `curl http://localhost:8080/tournaments`
 
 ## Get tournament by ID (accepts either webLink ID or tournament ID)
-`curl http://localhost:8080/:ID`
+`curl http://localhost:8080/tournament/:ID`
 
 # Docker Commands
 
