@@ -34,7 +34,8 @@ forked.on('message', (msg) => {
 //////////////////////////////////
 
 app.get('/', function(req, res){
-    res.send('nothing to see here')
+    // res.send('nothing to see here')
+    res.json({message: `Hello Dr. Fulken`});
 })
 
 // Force a refresh of the tournament data
@@ -64,6 +65,6 @@ app.get('/tournament/:ID', function(req, res){
     res.send(JSON.stringify(objArray, null, 4));
 })
 
-app.listen('8081')
+app.listen('8080')
 console.log('Magic happens on port 8081');
 exports = module.exports = app;
