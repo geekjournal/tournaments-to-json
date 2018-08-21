@@ -36,7 +36,8 @@ forked.on('message', (msg) => {
 
 app.get('/', function(req, res){
     // res.send('nothing to see here')
-    res.json({message: `GREETINGS PROFESSOR FALKEN.`});
+    res.status(200).send(JSON.stringify({message: `GREETINGS PROFESSOR FALKEN.`})).end();
+    //res.json({message: `GREETINGS PROFESSOR FALKEN.`});
 })
 
 // Force a refresh of the tournament data
@@ -66,6 +67,10 @@ app.get('/tournament/:ID', function(req, res){
     res.send(JSON.stringify(objArray, null, 4));
 })
 
-app.listen('8080')
-console.log('Magic happens on port 8081');
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
+    console.log('Press Ctrl+C to quit.');
+  });
+  
 exports = module.exports = app;
