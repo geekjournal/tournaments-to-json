@@ -1,2 +1,12 @@
 runtime: custom
 env: flex
+manual_scaling:
+  instances: 1
+#resources:
+#  cpu: .5
+#  memory_gb: 0.18
+#  disk_size_gb: 10
+
+# gcloud app deploy --version dev
+# gcloud app versions stop dev
+# gcloud app versions start dev

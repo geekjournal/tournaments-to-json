@@ -3,7 +3,8 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio'), cheerioTableparser = require('cheerio-tableparser');
 var app     = express();
-let tournamentJSON = require("./tournaments.json")
+// let tournamentJSON = require("./tournaments.json")
+let tournamentJSON = require("./empty.json")
 let lockedScrapingMutex = false;  
 let lastScrapedTime = "";
 
