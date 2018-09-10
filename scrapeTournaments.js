@@ -86,7 +86,7 @@ function scrapeTournaments() {
         json.push(obj);
     }
 
-    // Now go back and get the data as HTML so we can parse out the tournament link
+    // Now go back and get the data as HTML so we can parse out the tournament links
     tableData = $("table").parsetable(true, true, false);
     flippedTableData = tableData[0].map((col, i) => tableData.map(row => row[i]));
     for(var i = 0; i < flippedTableData.length; i++) {
@@ -95,7 +95,7 @@ function scrapeTournaments() {
 
         var item = flippedTableData[i];
 
-        var obj = { date : "", name : "", city : "", ID : "", urlID: "", url: "", points: "", deadline: ""};
+        var obj = { date : "", name : "", city : "", ID : "", urlID: "", url: "", points: "", deadline: "", drawsAvailable: "", mainContent: [] };
         obj.date = json[(i-2)].date.toString();
         obj.name = json[i-2].name.toString();
         obj.city = json[i-2].city.toString();
@@ -106,12 +106,11 @@ function scrapeTournaments() {
         obj.urlID = urlID;
         obj.url = "https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=" + urlID;
        
-        // The call to get points takes too long. DON'T DO IT HERE.
-        //var points = getPoints(urlID);
-        //obj.points = points;
         parser = getTournamentParser(urlID);
         obj.points = getPoints(urlID, parser);
         obj.deadline = getDeadline(urlID, parser);
+        obj.mainContent = getInfoTabs(urlID, parser);
+        obj.drawsAvailable = drawsAvailable(obj.mainContent);
 
         json[i-2] = obj;
         //json.push(obj);
@@ -160,4 +159,33 @@ function getDeadline(urlID, $) {
     cheerioTableparser($);
     tableData = $("#entry_info").parsetable(true, true, true);
     return tableData[1][1].toString();
+}
+
+// This function grabs what tabs are available. They are usually 
+// some subset of:  
+// Important Info   index 0
+// Applicants       index 1
+// Competitors      index 5
+// Seeds            index 6
+// Draws            index 7
+// Results          index 8
+// 
+// You can further index into Draws or Results to get a particular event.
+//  e.g. to go to All Draws: 207845#&&s=7Draws2
+//  e.g. to go to the first Draw (often men's open singles): 207845#&&s=7Draws3
+function getInfoTabs(urilID, $) {
+    let tabs = [];
+    
+    $('#ctl00_mainContent_Tabs li').each(function(i, elm) {
+        tabs.push($(this).find('a').text());
+    });
+    return tabs;
+}
+
+// Convenience function
+function drawsAvailable(arrayToCheckIfHasDraws) {
+    if (arrayToCheckIfHasDraws.indexOf("Draws") > -1) {
+        return "true";
+    }
+    return "false";
 }
