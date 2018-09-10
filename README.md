@@ -5,15 +5,12 @@ Grab tournament info for local parsing.
 
 1. Git pull
 1. Make changes, commit
-1. Build the Docker image
-
-## Build the docker image and publish to dockerhub
-`docker login`
-`docker build -t t2j .`
-`docker image ls`
-`docker tag t2j geekjournal/t2j:latest`
-`docker push geekjournal/t2j:latest`
-
+1. Build the Docker image and publish to dockerhub
+- `docker login`
+- `docker build -t t2j .`
+- `docker image ls`
+- `docker tag t2j geekjournal/t2j:latest`
+- `docker push geekjournal/t2j:latest`
 4. Run the server
 `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:latest`
 
