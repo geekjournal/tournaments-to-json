@@ -1,6 +1,22 @@
 # tournaments-to-json
 Grab tournament info for local parsing.
 
+# Development workflow on remote HOSTED server
+
+1. Git pull
+1. Make changes, commit
+1. Build the Docker image
+
+## Build the docker image and publish to dockerhub
+`docker login`
+`docker build -t t2j .`
+`docker image ls`
+`docker tag t2j geekjournal/t2j:latest`
+`docker push geekjounal/t2j:latest`
+
+4. Run the server
+`docker run -d --restart unless-stopped -p 3000:8080 geekjournal/t2j:latest`
+
 # Start the app
 run `npm start`
 
@@ -29,6 +45,9 @@ run `npm start`
 
 ## run from remote repository
 `docker run -d --restart unless-stopped -p 80:8080 geekjournal/t2j:latest`
+
+## run on server api.geekjournal.com behind an nginx loadbalancer
+`docker run -d --restart unless-stopped -p 3000:8080 geekjournal/t2j:latest`
 
 ## stop the container
 `docker container stop HASH`
