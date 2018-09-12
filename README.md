@@ -7,7 +7,7 @@ Grab tournament info for local parsing.
 1. Make changes, commit
 1. Build the Docker image and publish to dockerhub
 - `docker login`
-- `docker build -t t2j .`
+- `docker build --rm -t t2j .`
 - `docker image ls`
 - `docker tag t2j geekjournal/t2j:latest`
 - `docker push geekjournal/t2j:latest`
@@ -32,7 +32,7 @@ run `npm start`
 
 ## Build the docker image and publish to dockerhub
 `docker login`
-`docker build -t t2j .`
+`docker build --rm -t t2j .`
 `docker image ls`
 `docker tag t2j geekjournal/t2j:latest`
 `docker push geekjounal/t2j:latest`
