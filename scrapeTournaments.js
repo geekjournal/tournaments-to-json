@@ -95,7 +95,7 @@ function scrapeTournaments() {
 
         var item = flippedTableData[i];
 
-        var obj = { date : "", name : "", city : "", ID : "", urlID: "", url: "", points: "", deadline: "", drawsAvailable: "", mainContent: [] };
+        var obj = { date : "", name : "", city : "", ID : "", urlID: "", url: "", points: "", deadline: "", mainContent: [], drawsAvailable: "", drawsLink: "", drawCategories: [] };
         obj.date = json[(i-2)].date.toString();
         obj.name = json[i-2].name.toString();
         obj.city = json[i-2].city.toString();
@@ -111,6 +111,11 @@ function scrapeTournaments() {
         obj.deadline = getDeadline(urlID, parser);
         obj.mainContent = getInfoTabs(urlID, parser);
         obj.drawsAvailable = drawsAvailable(obj.mainContent);
+        if(obj.drawsAvailable === "true")
+        {
+            obj.drawCategories = getDrawDivisions(urlID);
+            obj.drawsLink = obj.url + "#&&s=7"; // #&&s=7 is special end of URL that gets to All draws.  See getInfoTab docs for list of indexes
+        }
 
         json[i-2] = obj;
         //json.push(obj);
@@ -133,6 +138,16 @@ function scrapeTournaments() {
 
     // send back the tournament info to the parent
     process.send(tournamentJSON); // send parent process the new data
+}
+
+function getParser(urlToParse) {
+    var c = require('child_process');
+    url = urlToParse
+    cmd = "curl '" + url.toString() + "' --compressed";
+    var html = c.execSync(cmd).toString(); //returns stdout
+    //console.log(html.toString());
+    const $ = cheerio.load(html);
+    return $;
 }
 
 function getTournamentParser(urlID) {
@@ -188,4 +203,25 @@ function drawsAvailable(arrayToCheckIfHasDraws) {
         return "true";
     }
     return "false";
+}
+
+function getDrawDivisions(urlID) {
+    // For Draws direct link, add '#&&s=7' to the end of the url. 
+    // To index into a chosen draw, append the index as 'Draws3' where in this particular case Index = 3
+    let url = 'https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=' + urlID;
+    let curlCommand = `curl '` + url +  `' -H 'Origin: https://tennislink.usta.com' -H 'Accept-Encoding: gzip, deflate, br' -H 'Accept-Language: en-US,en;q=0.9' -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36' -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' -H 'Accept: */*' -H 'Cache-Control: no-cache' -H 'X-Requested-With: XMLHttpRequest' -H 'Connection: keep-alive' -H 'X-MicrosoftAjax: Delta=true' -H 'DNT: 1' -H 'Referer: https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=208783' --data '__EVENTTARGET=ctl00%24ScriptManager1&__EVENTARGUMENT=s%3D7&ctl00_ScriptManager1_HiddenField=&ctl00%24mainContent%24controlTabIndex=0&ctl00%24mainContent%24hdncontrolTabValue=0&ctl00%24ucHB%24hfevent31=&__ASYNCPOST=true&' --compressed`;
+
+    // Let's grab the Draw HTML page with a curl since we have to pass so many headers
+    var c = require('child_process');
+    var html = c.execSync(curlCommand).toString(); //returns stdout
+    var $ = cheerio.load(html);
+
+    const drawDivisions = [];
+    $('option').each(function(i, elem) {
+        if(i > 1)
+        {
+            drawDivisions.push($(this).text());
+        }
+    });
+    return drawDivisions;   
 }
