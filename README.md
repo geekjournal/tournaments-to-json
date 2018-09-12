@@ -12,7 +12,7 @@ Grab tournament info for local parsing.
 - `docker tag t2j geekjournal/t2j:latest`
 - `docker push geekjournal/t2j:latest`
 4. Run the server
-`docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:latest`
+- `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:latest`
 
 # Start the app
 run `npm start`
