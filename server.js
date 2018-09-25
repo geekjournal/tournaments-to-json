@@ -1,3 +1,4 @@
+"use strict";
 var express = require('express');
 var fs = require('fs');
 var request = require('request');
@@ -30,11 +31,17 @@ forked.on('message', (msg) => {
     lockedScrapingMutex = false; // reset our mutex
 });
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 //////////////////////////////////
 // START API FUNCTIONS
 //////////////////////////////////
 
-app.get('/', function(req, res){
+app.get('/', function(req, res, next){
     // res.send('nothing to see here')
     res.status(200).send(JSON.stringify({message: `GREETINGS PROFESSOR FALKEN.`})).end();
     //res.json({message: `GREETINGS PROFESSOR FALKEN.`});
@@ -42,7 +49,7 @@ app.get('/', function(req, res){
 
 // Force a refresh of the tournament data
 // Scrape will get called automatically on a timer, FYI
-app.get('/scrape', function(req, res) {
+app.get('/scrape', function(req, res, next) {
     let myResponse = "";
     if(lockedScrapingMutex === true) {
         myResponse = {"status": "rejected", "description": "scrape already running", "lastScraped": lastScrapedTime };
@@ -54,20 +61,20 @@ app.get('/scrape', function(req, res) {
     res.send(JSON.stringify(myResponse, null, 4));
 })
 
-app.get('/tournaments', function(req, res){
-    console.log('/tournaments called');
+app.get('/tournaments', function(req, res, next){
+    console.log('/tournaments called at ' + new Date().toLocaleString() );
     res.send(JSON.stringify(tournamentJSON, null, 4))    
 })
 
 // note, you can query a tournament by either urlID or ID
 // an empty array is returned if no tournament is found
-app.get('/tournament/:ID', function(req, res){
+app.get('/tournament/:ID', function(req, res, next){
     console.log('/tournament called with urlID: ' + req.params.urlID)
     let objArray = tournamentJSON.filter(t => t.urlID === req.params.ID || t.ID === req.params.ID);
     res.send(JSON.stringify(objArray, null, 4));
 })
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
     console.log('Press Ctrl+C to quit.');
