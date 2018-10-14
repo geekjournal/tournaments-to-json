@@ -31,11 +31,11 @@ run `npm start`
 # Docker Commands
 
 ## Build the docker image and publish to dockerhub
-`docker login`
-`docker build --rm -t t2j .`
-`docker image ls`
-`docker tag t2j geekjournal/t2j:latest`
-`docker push geekjounal/t2j:latest`
+- `docker login`
+- `docker build --rm -t t2j .`
+- `docker image ls`
+- `docker tag t2j geekjournal/t2j:latest`
+- `docker push geekjounal/t2j:latest`
 
 ## run in background with -d, exposes container port 8080 as port 80 on local machine
 `docker run -d -p 80:8080 t2j`
@@ -49,12 +49,12 @@ run `npm start`
 ## stop the container
 `docker container stop HASH`
 
-# setup gcloud
+# setup For App Engine on Google Cloud
 NOTE:  Gcloud custom apps ONLY run when exposed and listening on port 8080
 
 ## Initialize right account and check to make sure on correct project
-`gcloud init`
-`gcloud info | grep project:`
+- `gcloud init`
+- `gcloud info | grep project:`
 
 ## Deploy to App Engine
 `gcloud app deploy`
@@ -72,6 +72,8 @@ NOTE:  Gcloud custom apps ONLY run when exposed and listening on port 8080
 
 ```
 docker run --rm -it -v "/root/letsencrypt/log:/var/log/letsencrypt" -v "/var/www/html/shared:/var/www/" -v "/etc/letsencrypt:/etc/letsencrypt" -v "/root/letsencrypt/lib:/var/lib/letsencrypt" geekjournal/letsencrypt certonly --webroot --webroot-path /var/www --email admin@geekjournal.com -d api.geekjournal.com
+```
+
 Saving debug log to /var/log/letsencrypt/letsencrypt.log
 Plugins selected: Authenticator webroot, Installer None
 Obtaining a new certificate
