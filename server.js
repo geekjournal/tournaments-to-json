@@ -74,7 +74,7 @@ app.get('/tournament/:ID', function(req, res, next){
     res.send(JSON.stringify(objArray, null, 4));
 })
 
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
     console.log('Press Ctrl+C to quit.');
