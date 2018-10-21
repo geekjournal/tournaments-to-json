@@ -54,6 +54,7 @@ setInterval(() => {
 // This is how you have to query that spreadsheet to actually get the data
 // curl 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTHVjDZcS0SRqJXYp4CaTHlC5EkJnVLGYnsVma3roFCBHo9SNQvqW5WyMF5UFJwPGltnh3x96yGnljb/pubhtml/sheet?headers%5Cx3dfalse&gid=2091685586' -H 'authority: docs.google.com' -H 'cache-control: max-age=0' -H 'upgrade-insecure-requests: 1' -H 'dnt: 1' -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36' -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8' -H 'x-client-data: CIq2yQEIo7bJAQjBtskBCKmdygEIqKPKAQ==' -H 'x-chrome-connected: id=117602618126914006031,mode=0,enable_account_consistency=false' -H 'accept-encoding: gzip, deflate, br' -H 'accept-language: en-US,en;q=0.9' -H 'cookie: S=apps-spreadsheets=QC7KTnSKjWJ9n3dNktzjyaQGM0AYoeqe; S=billing-ui-v3=ew_5CuqcWsTmfvZ1ss-t-2wN5eALw-V7:billing-ui-v3-efe=ew_5CuqcWsTmfvZ1ss-t-2wN5eALw-V7:grandcentral=OFGJmXD_0MddVUiLDMD54rGH3orKOjk3; OGPC=19005936-1:19006326-1:19006818-1:19006965-1:19007018-1:; OGP=-19005936:-19006965:-19007018:; SID=MQac4__zVRJQCaE01W3bTqkDoxq4QVNIycc2W2NtnO-mO9dM8OX0smfk3nQlz_9zDMY16A.; HSID=A03BY5GeUi7Zac1PY; SSID=A3X-dLXTIUa2rByrK; APISID=p8obGQVNd2kf5JL1/AJkRZO-gAKnNDbUJM; SAPISID=0NdIcLt9qhb18m7l/ATLPtHqMxFBDGm2dN; S=billing-ui-v3=ew_5CuqcWsTmfvZ1ss-t-2wN5eALw-V7:billing-ui-v3-efe=ew_5CuqcWsTmfvZ1ss-t-2wN5eALw-V7:grandcentral=OFGJmXD_0MddVUiLDMD54rGH3orKOjk3:explorer=AMbLQ14eRLykVAU5vEK2qeLp0cgo7ECC; NID=134=rG82b7SoaRalxIPiDEoGZnGJyH78XXfwIYoD17yCPZ9PdRcZoJam4EEFjf3JA7V02wgPBaVm-TLWrhFDExF8KwiOzSfP_5lfwTuFL__UWAknVdDqyFeT-JH6EWh5SQEZtHZR5efdwzs9DrtjWMFp_nPooslM6YzoEXcjHi1gRpUiL5BmqhLcUXcsab988HeerCvIZR_F_a6rvnBwp_xBtyzVLu1n9sZA5nPLU6o-vtOxb4bvZkbEN86r7EPq9pDqe2lDNYm3T_x_b_MIqppkxpilXGDpijIgDk5vtLhROzVkgnICnGi3FYO7SQ; 1P_JAR=2018-07-09-02; SIDCC=AEfoLeY40XTBMJfssVYYWXr3D_JMZBSlY8snLsUWPwuBlYbjC4USYW3VK0qpNSkd2dUMFcU77Jcg' --compressed
 function scrapeTournaments() {
+
     //All the web scraping magic will happen here
     console.log('CHILD_PROCESS: executing scrape...')
     //url = 'http://www.imdb.com/title/tt1229340/';
@@ -161,12 +162,20 @@ function getTournamentParser(urlID) {
 }
 
 function getPoints(urlID, $) {
-    var txt = $('body').text();
-    var n = txt.search("Adult-");
+    let txt = $('body').text();
+    let n = txt.search("Adult-");
+    let subStringStart = 6;
+    
     if (n === -1) {
-        return "?";
+        txt = $('body').text();
+        n = txt.search("Adult - ")
+        subStringStart = 8;
+        
+        if(n === -1) {
+            return "?";
+        }
     }
-    var points = txt.substring(n+6, n+9);
+    var points = txt.substring(n + subStringStart, n + subStringStart + 3);
     return points;
 }
 
