@@ -189,6 +189,8 @@ function getDeadline(urlID, $) {
 // some subset of:  
 // Important Info   index 0
 // Applicants       index 1
+// Players          index 2
+// Alternates       index 3
 // Competitors      index 5
 // Seeds            index 6
 // Draws            index 7
