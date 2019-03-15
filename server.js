@@ -6,7 +6,7 @@ var cheerio = require('cheerio'), cheerioTableparser = require('cheerio-tablepar
 var app     = express();
 // let tournamentJSON = require("./tournaments.json")
 let tournamentJSON = require("./empty.json")
-let lockedScrapingMutex = false;  
+let lockedScrapingMutex = false;
 let lastScrapedTime = "";
 
 //////////////////////////////////
@@ -23,6 +23,11 @@ var formatter = new Intl.DateTimeFormat([], options);
 // SETUP CHILD PROCESS TO SCRAPE
 //////////////////////////////////
 const { fork } = require('child_process');
+// let debug = typeof v8debug === 'object';
+// if (debug) {
+//     //Set an unused port number.
+//     process.execArgv.push('--debug=' + (40894));
+// }
 const forked = fork('scrapeTournaments.js');
 forked.on('message', (msg) => {
     console.log('Received message from child: ', "DONE SCRAPING -- actual msg not shown");
@@ -63,7 +68,7 @@ app.get('/scrape', function(req, res, next) {
 
 app.get('/tournaments', function(req, res, next){
     console.log('/tournaments called at ' + new Date().toLocaleString() );
-    res.send(JSON.stringify(tournamentJSON, null, 4))    
+    res.send(JSON.stringify(tournamentJSON, null, 4))
 })
 
 // note, you can query a tournament by either urlID or ID
@@ -79,5 +84,5 @@ app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}`);
     console.log('Press Ctrl+C to quit.');
   });
-  
+
 exports = module.exports = app;
