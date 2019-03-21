@@ -109,7 +109,14 @@ function scrapeTournaments() {
 
         parser = getTournamentParser(urlID);
         obj.points = getPoints(urlID, parser);
-        obj.deadline = getDeadline(urlID, parser);
+        if( getDeadlineIsForEntriesOpen(urlID, parser) ) {
+            obj.entriesOpen = getDeadline(urlID, parser);
+            obj.deadline = "";
+        } else {
+            obj.entriesOpen = "";
+            obj.deadline = getDeadline(urlID, parser);
+        }
+
         obj.mainContent = getInfoTabs(urlID, parser);
         obj.drawsAvailable = drawsAvailable(obj.mainContent);
         if(obj.drawsAvailable === "true")
@@ -117,7 +124,7 @@ function scrapeTournaments() {
             obj.drawCategories = getDrawDivisions(urlID);
             obj.drawsLink = obj.url + "#&&s=7"; // #&&s=7 is special end of URL that gets to All draws.  See getInfoTab docs for list of indexes
         }
-
+        //console.log(obj);
         json[i-2] = obj;
         //json.push(obj);
     }
@@ -182,7 +189,17 @@ function getPoints(urlID, $) {
 function getDeadline(urlID, $) {
     cheerioTableparser($);
     tableData = $("#entry_info").parsetable(true, true, true);
-    return tableData[1][1].toString();
+    return tableData[1][1].toString(); // date string of either entries close or open
+}
+
+function getDeadlineIsForEntriesOpen(urlID, $) {
+    cheerioTableparser($);
+    tableData = $("#entry_info").parsetable(true, true, true);
+
+    // tableData[1][1] contains the date entries either open or close
+    // tableData[0][1] contains a string, either "Entries Open" or "Entries Close"
+    return ~tableData[0][1].toString().toLowerCase().indexOf("open");
+
 }
 
 // This function grabs what tabs are available. They are usually
