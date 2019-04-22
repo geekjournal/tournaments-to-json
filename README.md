@@ -7,11 +7,17 @@ Grab tournament info for local parsing.
 1. Make changes, commit
 1. Build the Docker image and publish to dockerhub
 - `docker login`
+- 'docker image list`
+- `docker image rm r2j` // to get rid of existing image before building a new one
 - `docker build --rm -t t2j .`
 - `docker image ls`
 - `docker tag t2j geekjournal/t2j:latest`
 - `docker tag t2j geekjournal/t2j:1.x`
 - `docker push geekjournal/t2j:latest`
+3 Stop currently running container
+- `docker ps`
+- `docker rm -f t2j`
+- `docker ps`
 4. Run the server
 - `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:latest`
 5. ssh to remote server
@@ -113,7 +119,7 @@ IMPORTANT NOTES:
 
 But, NOTE the above command doesn't work for api.geekjournal.com since need to run inside a container
 
-# setup auto-renewal via cron ... may need to make new dir /var/log/certbot and chmod 777 /var/log/cerbot in order to run the following since doesn't 
+# setup auto-renewal via cron ... may need to make new dir /var/log/certbot and chmod 777 /var/log/cerbot in order to run the following since doesn't
 # run as root
 1. `sudo -i` to become root
 1. `0 0 * * * docker run --rm -v "/root/letsencrypt/log:/var/log/letsencrypt" -v "/var/www/html/shared:/var/www/" -v "/etc/letsencrypt:/etc/letsencrypt" -v "/root/letsencrypt/lib:/var/lib/letsencrypt" geekjournal/letsencrypt renew >> /var/log/certbot/certbot.log 2>&1 && service nginx reload >> /var/log/certbot/certbot.log 2>&1`
