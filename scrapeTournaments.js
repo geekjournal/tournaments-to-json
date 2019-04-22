@@ -119,6 +119,7 @@ function scrapeTournaments() {
 
         obj.mainContent = getInfoTabs(urlID, parser);
         obj.drawsAvailable = drawsAvailable(obj.mainContent);
+
         if(obj.drawsAvailable === "true")
         {
             obj.drawCategories = getDrawDivisions(urlID);
@@ -159,12 +160,13 @@ function getParser(urlToParse) {
 }
 
 function getTournamentParser(urlID) {
-    var c = require('child_process');
+    var c = require("child_process");
     url = 'https://tennislink.usta.com/tournaments/TournamentHome/Tournament.aspx?T=' + urlID;
     cmd = "curl '" + url.toString() + "' --compressed";
     var html = c.execSync(cmd).toString(); //returns stdout
     //console.log(html.toString());
     const $ = cheerio.load(html);
+
     return $;
 }
 
@@ -216,12 +218,13 @@ function getDeadlineIsForEntriesOpen(urlID, $) {
 // You can further index into Draws or Results to get a particular event.
 //  e.g. to go to All Draws: 207845#&&s=7Draws2
 //  e.g. to go to the first Draw (often men's open singles): 207845#&&s=7Draws3
-function getInfoTabs(urilID, $) {
+function getInfoTabs(urlID, $) {
     let tabs = [];
 
     $('#ctl00_mainContent_Tabs li').each(function(i, elm) {
         tabs.push($(this).find('a').text());
     });
+
     return tabs;
 }
 
