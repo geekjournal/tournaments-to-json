@@ -12,7 +12,8 @@
     "request": "latest"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "debug": "node --inspect=12345 server.js"
   },
   "devDependencies": {},
   "repository": {
