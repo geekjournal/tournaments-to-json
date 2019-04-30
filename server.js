@@ -9,6 +9,9 @@ let tournamentJSON = require("./empty.json")
 let lockedScrapingMutex = false;
 let lastScrapedTime = "";
 
+const scraper = require('./scrapers/tScraper.js');
+const TScraperConfig = require('./scrapers/TScraperConfig.js');
+
 //////////////////////////////////
 // SETUP DATE STUFF
 //////////////////////////////////
@@ -28,13 +31,15 @@ const { fork } = require('child_process');
 //     //Set an unused port number.
 //     process.execArgv.push('--debug=' + (40894));
 // }
-const forked = fork('scrapeTournaments.js');
-forked.on('message', (msg) => {
-    console.log('Received message from child: ', "DONE SCRAPING -- actual msg not shown");
-    tournamentJSON = msg;
-    lastScrapedTime = formatter.format(new Date()); // get the current time and remember
-    lockedScrapingMutex = false; // reset our mutex
-});
+
+// Uncomment the lines below to make scraping work again
+  const forked = fork('scrapeTournaments.js');
+  forked.on('message', (msg) => {
+      console.log('Received message from child: ', "DONE SCRAPING -- actual msg not shown");
+      tournamentJSON = msg;
+      lastScrapedTime = formatter.format(new Date()); // get the current time and remember
+      lockedScrapingMutex = false; // reset our mutex
+  });
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -65,6 +70,33 @@ app.get('/scrape', function(req, res, next) {
     }
     res.send(JSON.stringify(myResponse, null, 4));
 })
+
+app.get("/test", function (req, res, next) {
+  console.log("/test called at " + new Date().toLocaleString());
+
+  // let config1 = new TScraperConfig('1', '2019');
+  // let config2 = new TScraperConfig('2', '2019');
+  // let tournaments = {};
+  // tournaments = scraper.fetchTournaments(config1);
+
+  let today = new Date();
+  const config = new TScraperConfig('6', "2019");
+  let tournaments = [];
+
+  config.year = today.getFullYear().toString();
+  for (let i = 1; i <= 2; i++) {
+    config.month = i.toString();
+    tournaments = tournaments.concat(scraper.fetchTournaments(config));
+  }
+
+  config.year = (today.getFullYear() + 1).toString();
+  for (let i = 1; i <= 2; i++) {
+    config.month = i.toString();
+    tournaments = tournaments.concat(scraper.fetchTournaments(config));
+  }
+
+  res.send(JSON.stringify(tournaments, null, 4));
+});
 
 app.get('/tournaments', function(req, res, next){
     console.log('/tournaments called at ' + new Date().toLocaleString() );
