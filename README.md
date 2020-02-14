@@ -1,6 +1,21 @@
 # tournaments-to-json
 Grab tournament info for local parsing.
 
+# Server Maintenance
+
+## Determine what OS I'm running on
+`lsb_release -a`
+
+## Update Ubuntu 18.04 from command line
+- `sudo apt update` to refresh package database
+- Install/apply updates: `sudo apt upgrade`
+- Reboot the system if kernel was updated by typing `sudo reboot`
+
+### UPGRADE
+- `sudo upt upgrade` will upgrade packages and system files, including kernel
+
+
+
 # Development workflow on remote HOSTED server
 
 1. Git pull
