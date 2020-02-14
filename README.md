@@ -7,13 +7,14 @@ Grab tournament info for local parsing.
 1. Make changes, commit
 1. Build the Docker image and publish to dockerhub
 - `docker login`
-- 'docker image list`
-- `docker image rm r2j` // to get rid of existing image before building a new one
+- `docker image list`
+- `docker image rm t2j` // to get rid of existing image before building a new one
 - `docker build --rm -t t2j .`
 - `docker image ls`
 - `docker tag t2j geekjournal/t2j:latest`
 - `docker tag t2j geekjournal/t2j:1.x`
 - `docker push geekjournal/t2j:latest`
+- `docker push geekjournal/t2j:1.x`
 3 Stop currently running container
 - `docker ps`
 - `docker rm -f t2j`
@@ -22,8 +23,8 @@ Grab tournament info for local parsing.
 - `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:latest`
 5. ssh to remote server
 6. `docker login`
-7. `docker pull t2j geekjournal/t2j:1.x`
-8. `docker stop t2j`
+7. `docker pull geekjournal/t2j:1.x`
+8. `docker stop t2j` or `docker rm -f t2j`
 9. `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:1.x`
 
 # Start the app
