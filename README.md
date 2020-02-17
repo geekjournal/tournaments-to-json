@@ -1,28 +1,32 @@
 # tournaments-to-json
+
 Grab tournament info for local parsing.
 
 # Server Maintenance
 
 ## Determine what OS I'm running on
+
 `lsb_release -a`
 
 ## Update Ubuntu 18.04 from command line
+
 - `sudo apt update` to refresh package database
 - Install/apply updates: `sudo apt upgrade`
 - Reboot the system if kernel was updated by typing `sudo reboot`
 
 ### UPGRADE
+
 - `sudo upt upgrade` will upgrade packages and system files, including kernel
-
-
 
 # Development workflow on remote HOSTED server
 
 1. Git pull
 1. Make changes, commit
 1. Build the Docker image and publish to dockerhub
+
 - `docker login`
 - `docker image list`
+- `docker ps` // see what version is currently running, if any
 - `docker image rm t2j` // to get rid of existing image before building a new one
 - `docker build --rm -t t2j .`
 - `docker image ls`
@@ -30,64 +34,81 @@ Grab tournament info for local parsing.
 - `docker tag t2j geekjournal/t2j:1.x`
 - `docker push geekjournal/t2j:latest`
 - `docker push geekjournal/t2j:1.x`
-3 Stop currently running container
+
+3. Stop currently running container
+
 - `docker ps`
 - `docker rm -f t2j`
 - `docker ps`
+
 4. Run the server
-- `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:latest`
+
+- `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:latest --mount source=/tmp,target=/tmp`
+  > NOTE: We are mounting `/tmp` on localhost (source) to `/tmp` in the running container so that the container can write out the tournaments.json file. We can use this to recover the latest data for restarts. e.g. copy /tmp/tournaments.json to the working code directory, then rebuild the container so it has the latest data on startup.
+
 5. ssh to remote server
 6. `docker login`
 7. `docker pull geekjournal/t2j:1.x`
 8. `docker stop t2j` or `docker rm -f t2j`
-9. `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:1.x`
+9. `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:1.x --mount source=/tmp,target=/tmp`
 
 # Start the app
+
 run `npm start`
 
 # API
 
 ## Force scraping to happen
+
 `curl http://localhost:8080/scrape`
 
+> You don't need to do this unless you know data has changed on the USTA website, as this app automatically starts scraping on startup
+
 ## Get tournaments
+
 `curl http://localhost:8080/tournaments`
 
 ## Get tournament by ID (accepts either webLink ID or tournament ID)
+
 `curl http://localhost:8080/tournament/:ID`
 
-# Docker Commands
+# Docker Commands for developing on Localhost
 
 ## Build the docker image and publish to dockerhub
-- `docker login`
-- `docker build --rm -t t2j .`
-- `docker image ls`
-- `docker tag t2j geekjournal/t2j:latest`
-- `docker push geekjounal/t2j:latest`
+
+> See instructions above in RELEASE section
 
 ## run in background with -d, exposes container port 8080 as port 80 on local machine
-`docker run -d -p 80:8080 t2j`
+
+`docker run -d -p 80:8080 t2j --mount source=/tmp,target=/tmp`
 
 ## run from remote repository
-`docker run -d --restart unless-stopped -p 80:8080 geekjournal/t2j:latest`
+
+`docker run -d --restart unless-stopped -p 80:8080 geekjournal/t2j:latest --mount source=/tmp,target=/tmp`
 
 ## run on server api.geekjournal.com behind an nginx loadbalancer
-`docker run -d --restart unless-stopped -p 3000:8080 geekjournal/t2j:latest`
+
+`docker run -d --restart unless-stopped -p 3000:8080 geekjournal/t2j:latest --mount source=/tmp,target=/tmp`
 
 ## stop the container
+
 `docker container stop HASH`
 
 # setup For App Engine on Google Cloud
-NOTE:  Gcloud custom apps ONLY run when exposed and listening on port 8080
+
+NOTE: Gcloud custom apps ONLY run when exposed and listening on port 8080
 
 ## Initialize right account and check to make sure on correct project
+
 - `gcloud init`
 - `gcloud info | grep project:`
 
 ## Deploy to App Engine
+
 `gcloud app deploy`
 
 # Get image locally so can put in source control for gcloud
+
 1. `curl -b https://raw.githubusercontent.com/moby/moby/master/contrib/download-frozen-image-v2.sh`
 
 1. `bash download-frozen-image-v2.sh t2jImgDir geekjournal/t2j:latest`
@@ -97,6 +118,7 @@ NOTE:  Gcloud custom apps ONLY run when exposed and listening on port 8080
 1. `mv t2j.tar t2j.img`
 
 # Running let's encrypt
+
 See:
 https://medium.com/bros/enabling-https-with-lets-encrypt-over-docker-9cad06bdb82b
 
@@ -116,18 +138,20 @@ Waiting for verification...
 Cleaning up challenges
 
 IMPORTANT NOTES:
- - Congratulations! Your certificate and chain have been saved at:
-   /etc/letsencrypt/live/api.geekjournal.com/fullchain.pem
-   Your key file has been saved at:
-   /etc/letsencrypt/live/api.geekjournal.com/privkey.pem
-   Your cert will expire on 2018-12-01. To obtain a new or tweaked
-   version of this certificate in the future, simply run certbot
-   again. To non-interactively renew *all* of your certificates, run
-   "certbot renew"
- - If you like Certbot, please consider supporting our work by:
 
-   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
-   Donating to EFF:                    https://eff.org/donate-le
+- Congratulations! Your certificate and chain have been saved at:
+  /etc/letsencrypt/live/api.geekjournal.com/fullchain.pem
+  Your key file has been saved at:
+  /etc/letsencrypt/live/api.geekjournal.com/privkey.pem
+  Your cert will expire on 2018-12-01. To obtain a new or tweaked
+  version of this certificate in the future, simply run certbot
+  again. To non-interactively renew _all_ of your certificates, run
+  "certbot renew"
+- If you like Certbot, please consider supporting our work by:
+
+  Donating to ISRG / Let's Encrypt: https://letsencrypt.org/donate
+  Donating to EFF: https://eff.org/donate-le
+
 ```
 
 # Certbot output
@@ -139,3 +163,4 @@ But, NOTE the above command doesn't work for api.geekjournal.com since need to r
 # run as root
 1. `sudo -i` to become root
 1. `0 0 * * * docker run --rm -v "/root/letsencrypt/log:/var/log/letsencrypt" -v "/var/www/html/shared:/var/www/" -v "/etc/letsencrypt:/etc/letsencrypt" -v "/root/letsencrypt/lib:/var/lib/letsencrypt" geekjournal/letsencrypt renew >> /var/log/certbot/certbot.log 2>&1 && service nginx reload >> /var/log/certbot/certbot.log 2>&1`
+```
