@@ -18,7 +18,7 @@ Grab tournament info for local parsing.
 
 - `sudo upt upgrade` will upgrade packages and system files, including kernel
 
-# Development workflow on remote HOSTED server
+# Development workflow from local machine
 
 1. Git pull
 1. Make changes, commit
@@ -41,16 +41,17 @@ Grab tournament info for local parsing.
 - `docker rm -f t2j`
 - `docker ps`
 
-4. Run the server
+4. Run the t2j service on localhost
 
-- `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:latest --mount source=/tmp,target=/tmp`
+- `docker run -d --restart unless-stopped -p 3000:8080 -v /tmp:/tmp --name t2j geekjournal/t2j:latest`
   > NOTE: We are mounting `/tmp` on localhost (source) to `/tmp` in the running container so that the container can write out the tournaments.json file. We can use this to recover the latest data for restarts. e.g. copy /tmp/tournaments.json to the working code directory, then rebuild the container so it has the latest data on startup.
 
 5. ssh to remote server
 6. `docker login`
 7. `docker pull geekjournal/t2j:1.x`
 8. `docker stop t2j` or `docker rm -f t2j`
-9. `docker run -d --restart unless-stopped -p 3000:8080 --name t2j geekjournal/t2j:1.x --mount source=/tmp,target=/tmp`
+9. `docker run -d --restart unless-stopped -p 3000:8080 -v /tmp:/tmp --name t2j geekjournal/t2j:1.x`
+10. `docker ps`
 
 # Start the app
 
